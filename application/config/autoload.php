@@ -29,6 +29,20 @@
 
 /*
 | -------------------------------------------------------------------
+|  Auto-load Sparks
+| -------------------------------------------------------------------
+| Prototype:
+|
+|  $autoload['sparks'] = array('example-spark/1.0.0');
+|
+*/
+
+$autoload['sparks'] = array(
+	'ion_auth/2.5.0',
+);
+
+/*
+| -------------------------------------------------------------------
 |  Auto-load Packges
 | -------------------------------------------------------------------
 | Prototype:
@@ -52,7 +66,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database');
+$autoload['libraries'] = array('database', 'session');
 
 
 /*
