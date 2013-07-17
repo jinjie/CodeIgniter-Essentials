@@ -39,6 +39,7 @@
 
 $autoload['sparks'] = array(
 	'ion_auth/2.5.0',
+	'template/1.9.0',
 );
 
 /*
