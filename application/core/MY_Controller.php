@@ -4,6 +4,9 @@ class MY_Controller extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		
+		$this->load->spark('ion_auth/2.5.0');
+		$this->load->spark('template/1.9.0');
 	}
 
 }

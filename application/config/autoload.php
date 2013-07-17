@@ -29,21 +29,6 @@
 
 /*
 | -------------------------------------------------------------------
-|  Auto-load Sparks
-| -------------------------------------------------------------------
-| Prototype:
-|
-|  $autoload['sparks'] = array('example-spark/1.0.0');
-|
-*/
-
-$autoload['sparks'] = array(
-	'ion_auth/2.5.0',
-	'template/1.9.0',
-);
-
-/*
-| -------------------------------------------------------------------
 |  Auto-load Packges
 | -------------------------------------------------------------------
 | Prototype:
@@ -79,7 +64,7 @@ $autoload['libraries'] = array('database', 'session');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array();
+$autoload['helper'] = array('language', 'form', 'url');
 
 
 /*
