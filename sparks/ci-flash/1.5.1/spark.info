@@ -1,0 +1,4 @@
+name: ci-flash
+version: 1.5.1
+compatibility: 2.1.0
+tags: ["flash", "messages", "notices"]

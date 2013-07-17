@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="ci-flash" description="A flash message implementation, with multi-types" default="sniff">
+
+	<!-- ============================================  -->
+	<!-- Target: clean                                 -->
+	<!-- ============================================  -->
+	<target name="clean" description="Remove old checkstyle reports.">
+		<echo>Deleting old checkstyle reports...</echo>
+		<delete file="checkstyle.xml" />
+		<echo>[Complete]</echo>
+	</target>
+
+	<!-- ============================================  -->
+	<!-- Target: lint                                  -->
+	<!-- ============================================  -->
+	<target name="lint" description="Check syntax of source code.">
+		<echo>Linting...</echo>
+		<phplint haltonfailure="true">
+			<fileset dir="libraries">
+				<include name="**/*.php"/>
+			</fileset>
+		</phplint>
+		<echo>[Complete]</echo>
+	</target>
+
+	<!-- ============================================  -->
+	<!-- [DEFAULT]  Target: sniff                      -->
+	<!-- ============================================  -->
+	<target name="sniff" description="Check source code follows the CodeIgniter guidelines." depends="clean,lint">
+		<echo>Sniffing...</echo>
+		<!-- standard: http://github.com/thomas-ernest/CodeIgniter-for-PHP_CodeSniffer -->
+		<phpcodesniffer format="full" standard="CodeIgniter" showWarnings="true" haltonerror="true">
+			 <fileset dir="libraries">
+				<include name="**/*.php"/>
+			</fileset>
+			<formatter type="default" usefile="false" />
+			<formatter type="checkstyle" outfile="checkstyle.xml" />
+		</phpcodesniffer>
+		<echo>[Complete]</echo>
+	</target>
+</project>
