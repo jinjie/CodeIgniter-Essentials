@@ -1,3 +1,4 @@
 .DS\_Store
 *.sw?
 .
+application/config/email.php
