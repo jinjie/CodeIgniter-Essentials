@@ -1,0 +1,34 @@
+body {
+  padding-top: 60px;
+}
+.navbar .navbar-inner {
+  background: url("../img/vertical_cloth.png");
+}
+.alert {
+  width: 890px;
+}
+.left-sidebar {
+  width: 150px;
+  float: left;
+}
+.left-sidebar .well {
+  padding: 10px 0px;
+}
+.left-sidebar .well .nav .nav-header {
+  font-weight: normal;
+  font-size: 14px;
+}
+.left-sidebar .well .nav li a {
+  font-size: 12px;
+}
+.main-content {
+  width: 780px;
+  float: right;
+}
+.main-content .well {
+  padding: 10px;
+}
+.footer {
+  text-align: right;
+  font-size: 12px;
+}

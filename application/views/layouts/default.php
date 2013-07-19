@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<title><?php echo $template['title']; ?></title>
+		
+		<script src="<?php echo base_url('assets/jquery/jquery.min.js'); ?>"></script>
 		<link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" media="screen">
 		<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
 	</head>

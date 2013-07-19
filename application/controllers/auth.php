@@ -38,7 +38,15 @@ class Auth extends MY_Controller {
 				
 				if (! $login) {
 					$this->flash->error_now($this->ion_auth->errors());
-				}				
+				} else {
+					$this->flash->success("Logged in successfully");
+					
+					if ($return_url = $this->input->get('return_url')) {
+						redirect($this->input->get(urldecode($return_url)));
+					} else {
+						redirect("admin");
+					}
+				}
 			}
 		}
 		
@@ -92,6 +100,13 @@ class Auth extends MY_Controller {
 		}
 		
 		$this->template->build('auth/forgotten_password');
+	}
+	
+	public function logout() {
+		$this->ion_auth->logout();
+		$this->flash->success($this->ion_auth->messages());
+		
+		redirect("auth/login");
 	}
 
 }

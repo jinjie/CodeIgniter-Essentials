@@ -1,27 +1,14 @@
 @import "form.css";
 body {
-  background-color: #e5e5e5;
-  background: url("../img/furley_bg.png");
   padding-top: 60px;
 }
 .well {
   width: 350px;
   margin: auto;
 }
-.alert {
-  width: 340px;
-  margin: auto;
-  margin-bottom: 10px;
-}
-.alert ul {
-  margin-bottom: 0px;
-  margin-left: 0px;
-  list-style: none;
-}
-.alert ul li p {
-  margin-bottom: 0px;
-  padding: 0px;
-}
 .form-login a.forgotten-password {
   margin-left: 10px;
+}
+.alert {
+  width: 340px;
 }
