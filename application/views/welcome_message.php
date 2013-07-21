@@ -79,6 +79,8 @@
 		<code>application/controllers/welcome.php</code>
 
 		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+		
+		<p>Login here: <a href="<?php echo site_url("admin"); ?>"><?php echo site_url("admin"); ?></a></p>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>

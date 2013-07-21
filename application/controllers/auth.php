@@ -11,6 +11,10 @@ class Auth extends MY_Controller {
 	}
 	
 	public function login() {
+		if ($this->ion_auth->logged_in()) {
+			redirect("admin");
+		}
+		
 		$this->template->title('Login');
 		$this->load->helper('inflector');
 		
@@ -100,6 +104,43 @@ class Auth extends MY_Controller {
 		}
 		
 		$this->template->build('auth/forgotten_password');
+	}
+	
+	public function change_password() {
+		if (! $this->ion_auth->logged_in()) {
+			$this->flash->error('Please login');
+			redirect("auth/login");
+		}
+		
+		$this->template->set_layout('admin');
+		
+		$this->template->set_partial('navbar', 'admin/_partials/navbar');
+		$this->template->set_partial('left_sidebar', 'admin/_partials/left_sidebar');
+		$this->template->set_partial('footer', 'admin/_partials/footer');
+		
+		if ($this->input->post('submit')) {
+		
+			// Checks if the password matches
+			if ($this->input->post('password') !== $this->input->post('password2')) {
+				$this->flash->error_now("Password do not match");
+			} elseif ($this->input->post('password') == FALSE) {
+				$this->flash->error_now("Please enter a password");
+			} else {
+				$change_password = $this->ion_auth->change_password(
+					$this->session->userdata('identity'),
+					$this->input->post('cur_password'),
+					$this->input->post('password')
+				);
+				
+				if ($change_password) {
+					$this->flash->success_now($this->ion_auth->messages());
+				} else {
+					$this->flash->error_now($this->ion_auth->errors());
+				}
+			}
+		}
+		
+		$this->template->build("auth/change_password");
 	}
 	
 	public function logout() {

@@ -8,6 +8,7 @@ class MY_Controller extends CI_Controller {
 		$this->load->spark('ion_auth/2.5.0');
 		$this->load->spark('template/1.9.0');
 		$this->load->spark('ci-flash/1.5.1');
+		$this->load->spark('DataMapper-ORM/1.8.2');
 	}
 
 }

@@ -1,0 +1,1 @@
+<a href="<?php echo site_url("admin/users/create"); ?>" class="btn">New User</a>
