@@ -42,6 +42,8 @@ $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
 $route['admin'] = 'admin/dashboard';
+
+$route['auth'] = 'auth/login';
 $route['auth/reset_password'] = 'auth/forgotten_password';
 $route['auth/reset_password/(:any)'] = 'auth/forgotten_password/$1';
 

@@ -24,7 +24,7 @@ class User_groups extends Admin_Controller {
 			
 			if ($create_group) {
 				$this->flash->success($this->ion_auth->messages());
-				redirect("user_groups");
+				redirect("admin/user_groups");
 			} else {
 				$this->flash->error_now($this->ion_auth->errors());
 			}
