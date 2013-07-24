@@ -11,8 +11,8 @@ class Users extends Admin_Controller {
 			'users'	=> $users,
 		));
 		
-		$this->template->set_partial('actions', 'admin/users/_actions');
-		$this->template->build('admin/users/index');
+		$this->template->set_partial('actions', 'users/_actions');
+		$this->template->build('users/index');
 	}
 	
 	public function create() {
@@ -25,7 +25,7 @@ class Users extends Admin_Controller {
 			}
 		}
 		
-		$this->template->build('admin/users/form');
+		$this->template->build('users/form');
 	}
 	
 	public function edit($id = FALSE) {
@@ -46,7 +46,7 @@ class Users extends Admin_Controller {
 			}
 		}
 		
-		$this->template->build("admin/users/form");
+		$this->template->build("users/form");
 	}
 	
 	public function delete($id = FALSE) {

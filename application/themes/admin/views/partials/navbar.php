@@ -4,7 +4,7 @@
 			<a class="brand" href="<?php echo site_url(); ?>">Application Name</a>
 			
 			<ul class="nav pull-right">
-				<li><a href="<?php echo site_url("auth/change_password"); ?>">Change Password</a></li>
+				<li><a href="<?php echo site_url("admin/profile/change_password"); ?>">Change Password</a></li>
 				<li><a href="<?php echo site_url("auth/logout"); ?>">Logout</a></li>
 			</ul>
 		</div>

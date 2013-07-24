@@ -3,12 +3,7 @@
 	<head>
 		<title><?php echo $template['title']; ?></title>
 		
-		<script src="<?php echo base_url('assets/jquery/jquery.min.js'); ?>"></script>
-		<link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet" media="screen" />
-		<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
-		
-		<link href="<?php echo base_url('assets/css/global.css'); ?>" rel="stylesheet" media="screen" />
-		<link href="<?php echo base_url('assets/css/admin.css'); ?>" rel="stylesheet" media="screen" />
+		<?php echo $template['metadata']; ?>
 	</head>
 	<body>
 		<?php echo $template['partials']['navbar']; ?>

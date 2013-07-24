@@ -11,8 +11,8 @@ class User_groups extends Admin_Controller {
 			'groups'	=> $groups,
 		));
 		
-		$this->template->set_partial('actions', 'admin/user_groups/_actions');
-		$this->template->build('admin/user_groups/index');
+		$this->template->set_partial('actions', 'user_groups/_actions');
+		$this->template->build('user_groups/index');
 	}
 	
 	public function create() {
@@ -24,13 +24,13 @@ class User_groups extends Admin_Controller {
 			
 			if ($create_group) {
 				$this->flash->success($this->ion_auth->messages());
-				redirect("admin/user_groups");
+				redirect("user_groups");
 			} else {
 				$this->flash->error_now($this->ion_auth->errors());
 			}
 		}
 		
-		$this->template->build('admin/user_groups/form');
+		$this->template->build('user_groups/form');
 	}
 	
 	public function edit($group_id = FALSE) {
@@ -71,7 +71,7 @@ class User_groups extends Admin_Controller {
 		}
 		
 		$this->template->set('group', $group);
-		$this->template->build('admin/user_groups/form');
+		$this->template->build('user_groups/form');
 	}
 	
 	public function delete($group_id = FALSE) {

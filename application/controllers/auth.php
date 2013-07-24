@@ -1,13 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Auth extends MY_Controller {
+class Auth extends Frontend_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->template->set_layout('auth');
 		
 		$this->lang->load('auth', 'english');
 		$this->lang->load('ion_auth', 'english');
+		
+		$this->template->set_layout('blank');
 	}
 	
 	public function login() {
@@ -88,7 +89,8 @@ class Auth extends MY_Controller {
 					if (! $forgotten_password) {
 						$this->flash->error_now($this->ion_auth->errors());
 					} else {
-						$this->flash->success_now($this->ion_auth->messages());
+						$this->flash->success($this->ion_auth->messages());
+						redirect("auth/login");
 					}
 				}
 			}
@@ -104,43 +106,6 @@ class Auth extends MY_Controller {
 		}
 		
 		$this->template->build('auth/forgotten_password');
-	}
-	
-	public function change_password() {
-		if (! $this->ion_auth->logged_in()) {
-			$this->flash->error('Please login');
-			redirect("auth/login");
-		}
-		
-		$this->template->set_layout('admin');
-		
-		$this->template->set_partial('navbar', 'admin/_partials/navbar');
-		$this->template->set_partial('left_sidebar', 'admin/_partials/left_sidebar');
-		$this->template->set_partial('footer', 'admin/_partials/footer');
-		
-		if ($this->input->post('submit')) {
-		
-			// Checks if the password matches
-			if ($this->input->post('password') !== $this->input->post('password2')) {
-				$this->flash->error_now("Password do not match");
-			} elseif ($this->input->post('password') == FALSE) {
-				$this->flash->error_now("Please enter a password");
-			} else {
-				$change_password = $this->ion_auth->change_password(
-					$this->session->userdata('identity'),
-					$this->input->post('cur_password'),
-					$this->input->post('password')
-				);
-				
-				if ($change_password) {
-					$this->flash->success_now($this->ion_auth->messages());
-				} else {
-					$this->flash->error_now($this->ion_auth->errors());
-				}
-			}
-		}
-		
-		$this->template->build("auth/change_password");
 	}
 	
 	public function logout() {
