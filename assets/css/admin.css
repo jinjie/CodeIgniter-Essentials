@@ -32,3 +32,9 @@ body {
   text-align: right;
   font-size: 12px;
 }
+.form-horizontal ul.group-selection {
+  margin: 0px;
+}
+.form-horizontal ul.group-selection li {
+  list-style: none;
+}

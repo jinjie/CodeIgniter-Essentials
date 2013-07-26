@@ -17,9 +17,9 @@ class Users extends Admin_Controller {
 	
 	public function create() {
 		if ($this->input->post('submit')) {
-			if ($this->_save()) {
+			if ($user_id = $this->_save()) {
 				$this->flash->success($this->ion_auth->messages());
-				redirect("admin/users");
+				redirect("admin/users/edit/{$user_id}");
 			} else {
 				$this->flash->error_now($this->ion_auth->errors());
 			}
@@ -34,13 +34,37 @@ class Users extends Admin_Controller {
 			redirect("admin/users");
 		}
 		
+		$groups = new Group();
+		$groups->get();
+		
 		$this->template->set(array(
-			'user'	=> $user,
+			'user'		=> $user,
+			'groups'	=> $groups,
 		));
 		
 		if ($this->input->post('submit')) {
+			$this->form_validation->set_rules(array(
+				array(
+					'field'	=> 'group_id',
+					'label'	=> 'Group',
+					'rules'	=> '',
+				),
+			));
+		
 			if ($this->_save($id)) {
 				$this->flash->success_now($this->ion_auth->messages());
+			
+				// Remove all group from the user before adding them back in
+				foreach ($groups as $group) {
+					$this->ion_auth->remove_from_group($group->id, $user->id);
+				}
+				
+				// Add groups to the user
+				$group_id_array = $this->input->post('group_id');
+				
+				foreach ($group_id_array as $group_id) {
+					$this->ion_auth->add_to_group($group_id, $user->id);
+				}
 			} else {
 				$this->flash->error_now($this->ion_auth->errors());
 			}

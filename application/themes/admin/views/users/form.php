@@ -41,6 +41,23 @@
 		</div>
 	</div>
 	
+	<?php if (check_method('edit')) : ?>
+	<div class="control-group">
+		<label class="control-label">Groups</label>
+		<div class="controls">
+			<ul class="group-selection">
+				<?php foreach ($groups as $group) : ?>
+				<li>
+					<label class="checkbox">
+						<input type="checkbox" name="group_id[]" value="<?php echo $group->id; ?>" <?php echo set_checkbox('group_id', $group->id, ($this->ion_auth->in_group($group->id, $user->id) ? TRUE : FALSE)); ?> /> <?php echo $group->name; ?>
+					</label>
+				</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+	<?php endif; ?>
+	
 	<div class="control-group">
 		<div class="controls">
 			<input type="submit" name="submit" value="Save" class="btn btn-primary" />
