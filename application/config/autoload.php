@@ -27,6 +27,13 @@
 |
 */
 
+$autoload['sparks'] = array(
+	'ion_auth/2.5.0',
+	'template/1.9.0',
+	'ci-flash/1.5.1',
+	'DataMapper-ORM/1.8.2',
+);
+
 /*
 | -------------------------------------------------------------------
 |  Auto-load Packges

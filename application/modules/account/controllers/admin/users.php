@@ -11,21 +11,21 @@ class Users extends Admin_Controller {
 			'users'	=> $users,
 		));
 		
-		$this->template->set_partial('actions', 'users/_actions');
-		$this->template->build('users/index');
+		$this->template->set_partial('actions', 'admin/users/_actions');
+		$this->template->build('admin/users/index');
 	}
 	
 	public function create() {
 		if ($this->input->post('submit')) {
 			if ($this->_save()) {
 				$this->flash->success($this->ion_auth->messages());
-				redirect("admin/users");
+				redirect("admin/account/users");
 			} else {
 				$this->flash->error_now($this->ion_auth->errors());
 			}
 		}
 		
-		$this->template->build('users/form');
+		$this->template->build('admin/users/form');
 	}
 	
 	public function edit($id = FALSE) {
@@ -46,7 +46,7 @@ class Users extends Admin_Controller {
 			}
 		}
 		
-		$this->template->build("users/form");
+		$this->template->build("admin/users/form");
 	}
 	
 	public function delete($id = FALSE) {
@@ -64,7 +64,7 @@ class Users extends Admin_Controller {
 			}
 		}
 		
-		redirect("admin/users");
+		redirect("admin/account/users");
 	}
 	
 	private function _save($id = FALSE) {

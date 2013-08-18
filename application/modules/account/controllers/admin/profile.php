@@ -25,7 +25,7 @@ class Profile extends Admin_Controller {
 			}
 		}
 		
-		$this->template->build("profile/change_password");
+		$this->template->build("admin/profile/change_password");
 	}
 
 }

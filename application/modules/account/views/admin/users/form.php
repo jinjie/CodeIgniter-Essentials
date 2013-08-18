@@ -44,7 +44,7 @@
 	<div class="control-group">
 		<div class="controls">
 			<input type="submit" name="submit" value="Save" class="btn btn-primary" />
-			<a href="<?php echo site_url("admin/users"); ?>" class="btn">Cancel</a>
+			<a href="<?php echo site_url("admin/account/users"); ?>" class="btn">Cancel</a>
 		</div>
 	</div>
 </form>

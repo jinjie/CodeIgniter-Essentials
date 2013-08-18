@@ -1,5 +1,5 @@
 <div class="well">
-	<form class="form-horizontal" method="post" action="<?php echo site_url("auth/forgotten_password"); ?>">
+	<form class="form-horizontal" method="post" action="<?php echo current_url(); ?>">
 		<div class="control-group">
 			<label class="control-label"><?php echo humanize($this->config->item('identity', 'ion_auth')); ?></label>
 			<div class="controls">
@@ -10,7 +10,7 @@
 		<div class="control-group">
 			<div class="controls">
 				<input type="submit" name="submit" value="Reset my password" class="btn btn-primary" />
-				<a href="<?php echo site_url("auth/login"); ?>" class="btn">Login</a>
+				<a href="<?php echo site_url("account/login"); ?>" class="btn">Login</a>
 			</div>
 		</div>
 	</form>

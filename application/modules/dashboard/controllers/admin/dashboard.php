@@ -3,7 +3,7 @@
 class Dashboard extends Admin_Controller {
 
 	public function index() {
-		$this->template->build('dashboard/index');
+		$this->template->build('admin/dashboard');
 	}
 
 }

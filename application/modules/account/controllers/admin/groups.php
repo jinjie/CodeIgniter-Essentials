@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class User_groups extends Admin_Controller {
+class Groups extends Admin_Controller {
 
 	public function index() {
 		$groups = new Group();
@@ -11,8 +11,8 @@ class User_groups extends Admin_Controller {
 			'groups'	=> $groups,
 		));
 		
-		$this->template->set_partial('actions', 'user_groups/_actions');
-		$this->template->build('user_groups/index');
+		$this->template->set_partial('actions', 'admin/groups/_actions');
+		$this->template->build('admin/groups/index');
 	}
 	
 	public function create() {
@@ -24,19 +24,19 @@ class User_groups extends Admin_Controller {
 			
 			if ($create_group) {
 				$this->flash->success($this->ion_auth->messages());
-				redirect("admin/user_groups");
+				redirect("admin/account/groups");
 			} else {
 				$this->flash->error_now($this->ion_auth->errors());
 			}
 		}
 		
-		$this->template->build('user_groups/form');
+		$this->template->build('admin/groups/form');
 	}
 	
 	public function edit($group_id = FALSE) {
 		if (! $group = new Group($group_id)) {
 			$this->flash->error('Group does not exist');
-			redirect("admin/user_groups");
+			redirect("admin/account/groups");
 		}
 		
 		if ($this->input->post('submit')) {
@@ -71,7 +71,7 @@ class User_groups extends Admin_Controller {
 		}
 		
 		$this->template->set('group', $group);
-		$this->template->build('user_groups/form');
+		$this->template->build('admin/groups/form');
 	}
 	
 	public function delete($group_id = FALSE) {
@@ -81,7 +81,7 @@ class User_groups extends Admin_Controller {
 			$this->flash->error("Cannot delete group");
 		}
 		
-		redirect("admin/user_groups");
+		redirect("admin/account/groups");
 	}
 
 }

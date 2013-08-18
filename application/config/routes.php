@@ -41,7 +41,14 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
-$route['admin'] = 'admin/dashboard';
+$route['account/(:any)'] = 'account/frontend/$1';
+//$route['admin/([a-zA-Z_-]+)/'] = '$1/admin';
+
+$route['admin'] = 'dashboard/admin/dashboard';
+$route['admin/(:any)/(:any)/(:any)/(:any)'] = '$1/admin/$2/$3/$4';
+$route['admin/(:any)/(:any)/(:any)'] = '$1/admin/$2/$3';
+$route['admin/(:any)/(:any)'] = '$1/admin/$2';
+$route['admin/(:any)'] = '$1/admin/$1/index';
 
 $route['auth'] = 'auth/login';
 $route['auth/reset_password'] = 'auth/forgotten_password';

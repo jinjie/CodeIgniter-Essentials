@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Auth extends Frontend_Controller {
+class Frontend extends Public_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -90,7 +90,7 @@ class Auth extends Frontend_Controller {
 						$this->flash->error_now($this->ion_auth->errors());
 					} else {
 						$this->flash->success($this->ion_auth->messages());
-						redirect("auth/login");
+						redirect("account/login");
 					}
 				}
 			}
@@ -101,7 +101,7 @@ class Auth extends Frontend_Controller {
 				$this->flash->error_now("Invalid hash. Please enter your email address to have your password reset link resent.");
 			} else {
 				$this->flash->success($this->ion_auth->messages());
-				redirect("auth/login");
+				redirect("account/login");
 			}
 		}
 		
@@ -112,7 +112,7 @@ class Auth extends Frontend_Controller {
 		$this->ion_auth->logout();
 		$this->flash->success($this->ion_auth->messages());
 		
-		redirect("auth/login");
+		redirect("account/login");
 	}
 
 }

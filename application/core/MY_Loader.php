@@ -23,7 +23,11 @@
  * @category	Loader
  * @link		http://codeigniter.com/user_guide/libraries/loader.html
  */
-class MY_Loader extends CI_Loader
+
+/* load the MX_Loader class */
+require APPPATH."third_party/MX/Loader.php";
+
+class MY_Loader extends MX_Loader
 {
     /**
      * Keep track of which sparks are loaded. This will come in handy for being

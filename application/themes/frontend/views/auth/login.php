@@ -26,7 +26,7 @@
 		<div class="control-group">
 			<div class="controls inline">
 				<input type="submit" name="login" value="Login" class="btn btn-primary" />
-				<a href="<?php echo site_url("auth/forgotten_password"); ?>" class="forgotten-password">Forgot your password?</a>
+				<a href="<?php echo site_url("account/forgotten_password"); ?>" class="forgotten-password">Forgot your password?</a>
 			</div>
 		</div>
 	</form>

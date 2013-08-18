@@ -17,8 +17,8 @@
 			<td><?php echo $group->user_count; ?></td>
 			<td>
 				<div class="btn-group">
-					<a href="<?php echo site_url("admin/user_groups/delete/{$group->id}"); ?>" class="btn btn-mini" onclick="javascript:return confirm('Are you sure to delete this group?');"><i class="icon-trash"></i></a>
-					<a href="<?php echo site_url("admin/user_groups/edit/{$group->id}"); ?>" class="btn btn-mini"><i class="icon-edit"></i></a>
+					<a href="<?php echo site_url("admin/account/groups/delete/{$group->id}"); ?>" class="btn btn-mini" onclick="javascript:return confirm('Are you sure to delete this group?');"><i class="icon-trash"></i></a>
+					<a href="<?php echo site_url("admin/account/groups/edit/{$group->id}"); ?>" class="btn btn-mini"><i class="icon-edit"></i></a>
 				</div>
 			</td>
 		</tr>

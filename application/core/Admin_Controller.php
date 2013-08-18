@@ -8,7 +8,7 @@ class Admin_Controller extends MY_Controller {
 		if (! $this->ion_auth->logged_in()) {
 			$this->flash->error("Please login.");
 			
-			redirect("auth/login?return_url=" . urlencode($this->uri->uri_string()));
+			redirect("account/login?return_url=" . urlencode($this->uri->uri_string()));
 		}
 		
 		$this->template->set_partial('navbar', 'partials/navbar');

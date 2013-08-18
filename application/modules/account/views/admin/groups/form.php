@@ -16,7 +16,7 @@
 	<div class="control-group">
 		<div class="controls">
 			<input type="submit" name="submit" value="Save" class="btn btn-primary" />
-			<a href="<?php echo site_url("admin/user_groups"); ?>" class="btn">Cancel</a>
+			<a href="<?php echo site_url("admin/account/groups"); ?>" class="btn">Cancel</a>
 		</div>
 	</div>
 </form>
